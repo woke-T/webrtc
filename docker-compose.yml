@@ -1,0 +1,41 @@
+version: "3.0"
+
+services: 
+    redis:
+        container_name: redis
+        image: redis
+        ports: 
+            - "6379:6379"
+        restart: on-failure
+        networks: 
+            - my-server
+
+    server:
+        container_name: server
+        build: 
+            context: server
+            dockerfile: Dockerfile
+        ports: 
+            - "8000:8000"
+        restart: on-failure
+        networks: 
+            - my-server
+        depends_on: 
+            - redis
+
+    nginx:
+        container_name: nginx
+        build: 
+            context: nginx
+            dockerfile: Dockerfile
+        ports: 
+            - "80:80"
+        restart: on-failure
+        networks: 
+            - my-server
+        depends_on: 
+            - redis
+            - server
+
+networks:
+    my-server:

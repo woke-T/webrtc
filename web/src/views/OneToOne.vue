@@ -209,7 +209,9 @@ const initData = () => {
   }
 
   // const url = "wss://www.woke20.com:8000";
-  const url = "ws://47.108.71.112:8000";
+  const url = "wss://dev-qs-platform-pioneer.gz.cvte.cn/wss";
+  // const url = "ws://dev-qs-platform-pioneer.gz.cvte.cn:8000";
+  // const url = "ws://47.108.71.112:8000";
   // const url = "ws://172.23.65.119:8000";
   // const url = "ws://localhost:8000"
 
